@@ -7,7 +7,6 @@ import argparse
 from tqdm import tqdm
 from colorama import init, Fore, Style
 
-# Initialize colorama
 init(autoreset=True)
 
 def extract_client_id(url):
@@ -26,7 +25,7 @@ def extract_origin(url):
     return "Unknown"
 
 def is_valid_client_id(client_id):
-    pattern = re.compile(r'^\d+-[a-z0-9]+\.apps\.googleusercontent\.com$')
+    pattern = re.compile(r'^\d+(-[a-z0-9]+)?\.apps\.googleusercontent\.com$')
     return pattern.match(client_id) is not None
 
 def extract_email(response_text):
@@ -49,20 +48,8 @@ def process_url(url):
     headers = {
         "Host": "accounts.google.com",
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0",
-        "Accept": "*/*",
-        "Accept-Language": "en-US,en;q=0.5",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Referer": "https://accounts.google.com/",
-        "X-Same-Domain": "1",
-        "X-Goog-Ext-278367001-Jspb": '["GeneralOAuthFlow"]',
-        "X-Goog-Ext-391502476-Jspb": '["S1745736021:1719387078921857","lso"]',
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        "Origin": "https://accounts.google.com",
-        "Dnt": "1",
-        "Cookie": "AEC=AQTF6HxP-gPsbR12S9mF3yzZ27zYzXdGARJH2jKFnymC-9pAYj4MNL5UOw; NID=515=LEUATJru6awt5Dj98QB8_mFJuoOejajZqFLLHCPM2ktrvOlpNR5Ny_F1PP_0Jn1lDRXiJFSZ_nnTkZmNNB7hU_eFd16rVJotpvnlfH23l1aScbO_9t1FSgjrmm4NV0Omty2TfSrL83NO-WiP_3_9I_uwMvVKWEnNoImgQsnCLuxCudSStgjR1eLlfE8tluY4B_ijQSNN6A; OGPC=19037049-1:; __Host-GAPS=1:qo5tjYVkpfzrF3EH0jRHUndSlYgjVw:XEtC-4BjS1v1g_5D; OTZ=7618051_72_76_104100_72_446760",
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-origin",
+        "Cookie": "__Host-GAPS=1:qo5tjYVkpfzrF3EH0jRHUndSlYgjVw:XEtC-4BjS1v1g_5D;",
     }
 
     data = f'f.req=%5B%5B%5B%22WZfWSd%22%2C%22%5B2%2C1%5D%22%2Cnull%2C%221%22%5D%2C%5B%22etGTrd%22%2C%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2Cnull%2C%222%22%5D%2C%5B%22Aho3hb%22%2C%22%5B%5D%22%2Cnull%2C%223%22%5D%2C%5B%22i3kFoc%22%2C%22%5B%5D%22%2Cnull%2C%224%22%5D%2C%5B%22zKAP2e%22%2C%22%5B%5C%22identity-signin-password%5C%22%5D%22%2Cnull%2C%226%22%5D%2C%5B%22RzSO2e%22%2C%22%5B%5C%22{client_id}%5C%22%5D%22%2Cnull%2C%227%22%5D%5D%5D&at=ALt4Ve29PZzUxNk6P93qVlYfDpdE%3A1719387079176&'
