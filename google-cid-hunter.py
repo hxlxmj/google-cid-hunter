@@ -117,7 +117,7 @@ def process_url(url):
 
                 if email:
                     print(f"{Fore.GREEN}{Style.BRIGHT}Client ID: {Style.RESET_ALL}{client_id}")
-                    print(f"{Fore.GREEN}{Style.BRIGHT}Admin Email: {Style.RESET_ALL}{email}")
+                    print(f"{Fore.GREEN}{Style.BRIGHT}Project Owner Email: {Style.RESET_ALL}{email}")
                 else:
                     print(f"{Fore.RED}{Style.BRIGHT}Client ID: {Style.RESET_ALL}{client_id}")
                     print(f"{Fore.RED}No email address found in the response.")
