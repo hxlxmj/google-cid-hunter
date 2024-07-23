@@ -17,21 +17,16 @@ init(autoreset=True)
 class CustomColors:
     ORANGE = '\033[33m'  # ANSI code for orange/yellow
 
-print(f"""
-{Fore.BLUE}
-            _    __ 
-  ___ _____(_)__/ / 
- / _ `/ __/ / _  / 
- \_, /\__/_/\_,_/  
-/___/_                __           
-   / /_  __  ______  / /____  _____
-  / __ \/ / / / __ \/ __/ _ \/ ___/
- / / / / /_/ / / / / /_/  __/ /    
-/_/ /_/\__,_/_/ /_/\__/\___/_/
-
+print(f"""{Fore.BLUE}
+        _     ____                __           
+  _____(_)___/ / /_  __  ______  / /____  _____
+ / ___/ / __  / __ \/ / / / __ \/ __/ _ \/ ___/
+/ /__/ / /_/ / / / / /_/ / / / / /_/  __/ /    
+\___/_/\__,_/_/ /_/\__,_/_/ /_/\__/\___/_/                                   
 {CustomColors.ORANGE}
-Vulnerability was found by Halim Jabbes - 26 June 2024
-@hxlxmj
+01100011 01101001 01100100 01101000 01110101 
+    01101110 01110100 01100101 01110010 
+    
 """)
 
 def extract_client_id(url):
@@ -120,10 +115,10 @@ def process_url(url):
             "Host": "accounts.google.com",
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0",
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-            "Cookie": "__Host-GAPS=1:qo5tjYVkpfzrF3EH0jRHUndSlYgjVw:XEtC-4BjS1v1g_5D;",
+            "Cookie": "__Host-GAPS=1:oAanrnoqKziWvFF9swUNMgSk28L7iw:_nCQW92I4OxnvDKe;",
         }
 
-        data = f'f.req=%5B%20%5B%20%5B%22WZfWSd%22%2C%20%22%5B2%2C1%5D%22%2C%20null%2C%20%221%22%5D%2C%20%5B%22etGTrd%22%2C%20%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2C%20null%2C%20%221%22%5D%2C%20%5B%22Aho3hb%22%2C%20%22%5B%5D%22%2C%20null%2C%20%223%22%5D%2C%20%5B%22i3kFoc%22%2C%20%22%5B%5D%22%2C%20null%2C%20%222%22%5D%2C%20%5B%22RzSO2e%22%2C%20%22%5B%5C%22{client_id}%5C%22%5D%22%2C%20null%2C%20%226%22%5D%20%5D%20%5D&at=ALt4Ve29PZzUxNk6P93qVlYfDpdE%3A1719387079176&'
+        data = f'f.req=%5B%5B%5B%22WZfWSd%22%2C%22%5B2%2C1%5D%22%2Cnull%2C%221%22%5D%2C%5B%22etGTrd%22%2C%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2Cnull%2C%222%22%5D%2C%5B%22Aho3hb%22%2C%22%5B%5D%22%2Cnull%2C%223%22%5D%2C%5B%22i3kFoc%22%2C%22%5B%5D%22%2Cnull%2C%224%22%5D%2C%5B%22zKAP2e%22%2C%22%5B%5C%22identity-signin-password%5C%22%5D%22%2Cnull%2C%226%22%5D%2C%5B%22RzSO2e%22%2C%22%5B%5C%22{client_id}%5C%22%5D%22%2Cnull%2C%227%22%5D%5D%5D&at=ALt4Ve2FV15yfV1PuYvPE7LMHnCj%3A1721718759376&'
 
         try:
             response = requests.post(
