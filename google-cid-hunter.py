@@ -115,10 +115,10 @@ def process_url(url):
             "Host": "accounts.google.com",
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0",
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-            "Cookie": "__Host-GAPS=1:oAanrnoqKziWvFF9swUNMgSk28L7iw:_nCQW92I4OxnvDKe;",
+            "Cookie": "__Host-GAPS=1:rKwTF53qrmFOw91QWWQQcU6OpDcd8Q:Pbc8FPsD_G6G-7YB;",
         }
 
-        data = f'f.req=%5B%5B%5B%22WZfWSd%22%2C%22%5B2%2C1%5D%22%2Cnull%2C%221%22%5D%2C%5B%22etGTrd%22%2C%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2Cnull%2C%222%22%5D%2C%5B%22Aho3hb%22%2C%22%5B%5D%22%2Cnull%2C%223%22%5D%2C%5B%22i3kFoc%22%2C%22%5B%5D%22%2Cnull%2C%224%22%5D%2C%5B%22zKAP2e%22%2C%22%5B%5C%22identity-signin-password%5C%22%5D%22%2Cnull%2C%226%22%5D%2C%5B%22RzSO2e%22%2C%22%5B%5C%22{client_id}%5C%22%5D%22%2Cnull%2C%227%22%5D%5D%5D&at=ALt4Ve2FV15yfV1PuYvPE7LMHnCj%3A1721718759376&'
+        data = f'f.req=%5B%5B%5B%22WZfWSd%22%2C%22%5B2%2C1%5D%22%2Cnull%2C%221%22%5D%2C%5B%22etGTrd%22%2C%22%5B%5C%22{client_id}%5C%22%2C%5C%22https%3A%2F%2Fvpn1.volans.tech%5C%22%5D%22%2Cnull%2C%222%22%5D%2C%5B%22Aho3hb%22%2C%22%5B%5D%22%2Cnull%2C%223%22%5D%2C%5B%22i3kFoc%22%2C%22%5B%5D%22%2Cnull%2C%224%22%5D%2C%5B%22zKAP2e%22%2C%22%5B%5C%22identity-signin-password%5C%22%5D%22%2Cnull%2C%226%22%5D%2C%5B%22RzSO2e%22%2C%22%5B%5C%22{client_id}%5C%22%5D%22%2Cnull%2C%227%22%5D%5D%5D&at=ALt4Ve2IjRVDrgPKXef6927OSysF%3A1722947036228&'
 
         try:
             response = requests.post(
